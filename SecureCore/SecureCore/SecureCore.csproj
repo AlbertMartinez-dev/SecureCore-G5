@@ -80,6 +80,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{e4b22e71-c0bb-4a8e-bda8-8984cd0bd63b}</Project>
+      <Name>DataAccess</Name>
     <ProjectReference Include="..\SWControls\SWControls.csproj">
       <Project>{5105CE86-77DF-439D-9EFD-3FD2BC4B5B5E}</Project>
       <Name>SWControls</Name>
