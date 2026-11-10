@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.36631.11
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureCore", "SecureCore\SecureCore.csproj", "{FBE7B4E1-A00E-4917-B525-5BAB408519F2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWControls", "SWControls\SWControls.csproj", "{5105CE86-77DF-439D-9EFD-3FD2BC4B5B5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{E4B22E71-C0BB-4A8E-BDA8-8984CD0BD63B}"
@@ -25,16 +23,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceShipsTypes", "SpaceShi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "menuOptions", "menuOptions\menuOptions.csproj", "{068D3E69-A1A9-4C94-96E4-1F0EF4ED28C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureCore", "SecureCore\SecureCore.csproj", "{FBE7B4E1-A00E-4917-B525-5BAB408519F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FBE7B4E1-A00E-4917-B525-5BAB408519F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBE7B4E1-A00E-4917-B525-5BAB408519F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBE7B4E1-A00E-4917-B525-5BAB408519F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBE7B4E1-A00E-4917-B525-5BAB408519F2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5105CE86-77DF-439D-9EFD-3FD2BC4B5B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5105CE86-77DF-439D-9EFD-3FD2BC4B5B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5105CE86-77DF-439D-9EFD-3FD2BC4B5B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,6 +71,10 @@ Global
 		{068D3E69-A1A9-4C94-96E4-1F0EF4ED28C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{068D3E69-A1A9-4C94-96E4-1F0EF4ED28C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{068D3E69-A1A9-4C94-96E4-1F0EF4ED28C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBE7B4E1-A00E-4917-B525-5BAB408519F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBE7B4E1-A00E-4917-B525-5BAB408519F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBE7B4E1-A00E-4917-B525-5BAB408519F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBE7B4E1-A00E-4917-B525-5BAB408519F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
