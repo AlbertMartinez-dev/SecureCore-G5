@@ -43,7 +43,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SWLaunchForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SWLaunchForm.Designer.cs">
+      <DependentUpon>SWLaunchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SWTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SWTextBox.Designer.cs">
+      <DependentUpon>SWTextBox.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SWLaunchForm.resx">
+      <DependentUpon>SWLaunchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SWTextBox.resx">
+      <DependentUpon>SWTextBox.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
