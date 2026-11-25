@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Configuration;
-using System.Data.SqlClient;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using DataAccess;
 
 namespace SecureCore
 {
@@ -35,22 +35,14 @@ namespace SecureCore
                 string salt = HashUser.GenerarSalt();
                 string hash = HashUser.PasswordSaltat(txtNouPassword.Text, salt);
 
-                ConnectionStringSettings conf = ConfigurationManager.ConnectionStrings["SecureCoreG5ConnectionString"];
-                SqlConnection conn = new SqlConnection(conf.ConnectionString);
-                try
-                {
-                    conn.Open();
-                    SqlCommand command = conn.CreateCommand();
-                    command.CommandText = "update Users set Password = @Password, Salt = @Salt where Login = @Login";
-                    command.Parameters.Add(new SqlParameter("@Password", hash));
-                    command.Parameters.Add(new SqlParameter("@Salt", salt));
-                    command.Parameters.Add(new SqlParameter("@Login", login));
-                    command.ExecuteNonQuery();
-                }
-                finally
-                {
-                    conn.Close();
-                }
+                Dictionary<string, object> parametres = new Dictionary<string, object>();
+                parametres.Add("@Password", hash);
+                parametres.Add("@Salt", salt);
+                parametres.Add("@Login", login);
+
+                ComponentDades bd = new ComponentDades();
+                bd.Connectar();
+                bd.Executa("update Users set Password = @Password, Salt = @Salt where Login = @Login", parametres);
 
                 MessageBox.Show("Contrasenya canviada. Torna a entrar amb la nova.");
                 this.Close();

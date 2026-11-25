@@ -1,27 +1,19 @@
 ﻿using System;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace SecureCore
 {
     public static class HashUser
     {
-        
-        public static string Hash(string text)
-        {
-            using (SHA256 sha = SHA256.Create())
-            {
-                byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(text));
-                return BitConverter.ToString(bytes);
-            }
-        }
+        private const int SaltByteSize = 24;
+        private const int HashByteSize = 24;
+        private const int HashingIterationsCount = 10101;
 
-        
         public static string GenerarSalt()
         {
             using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
             {
-                byte[] salt = new byte[16];
+                byte[] salt = new byte[SaltByteSize];
                 rng.GetBytes(salt);
                 return Convert.ToBase64String(salt);
             }
@@ -29,7 +21,12 @@ namespace SecureCore
 
         public static string PasswordSaltat(string password, string salt)
         {
-            return Hash(password + salt);
+            byte[] saltBytes = Convert.FromBase64String(salt);
+            using (Rfc2898DeriveBytes hashGenerator = new Rfc2898DeriveBytes(password, saltBytes))
+            {
+                hashGenerator.IterationCount = HashingIterationsCount;
+                return Convert.ToBase64String(hashGenerator.GetBytes(HashByteSize));
+            }
         }
     }
 }

@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
-using System.Data.SqlClient;
+using DataAccess;
 
 namespace SecureCore
 {
@@ -21,6 +20,8 @@ namespace SecureCore
 
         private const string PasswordInicial = "12345aA";
         private const string ColumnaNivell = "AccessLevel";
+
+        private ComponentDades bd = new ComponentDades();
 
         public frmLogin()
         {
@@ -112,28 +113,11 @@ namespace SecureCore
             
         private DataRow ObtenirUsuari(string login)
         {
-            ConnectionStringSettings conf = ConfigurationManager.ConnectionStrings["SecureCoreG5ConnectionString"];
-            if (conf == null)
-            {
-                throw new Exception("No trobo la cadena de connexió a l'App.config.");
-            }
-            SqlConnection conn = new SqlConnection(conf.ConnectionString);
+            Dictionary<string, object> parametres = new Dictionary<string, object>();
+            parametres.Add("@Login", login);
 
-            SqlCommand command = conn.CreateCommand();
-            command.CommandText = "select * from Users where Login = @Login";
-            command.Parameters.Add(new SqlParameter("@Login", login));
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = command;
-            DataSet ds = new DataSet();
-            try
-            {
-                conn.Open();
-                adapter.Fill(ds);
-            }
-            finally
-            {
-                conn.Close();
-            }
+            bd.Connectar();
+            DataSet ds = bd.PortarPerConsulta("select * from Users where Login = @Login", parametres);
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -144,24 +128,11 @@ namespace SecureCore
 
         private string ObtenirNivell(object idUserCategory)
         {
-            ConnectionStringSettings conf = ConfigurationManager.ConnectionStrings["SecureCoreG5ConnectionString"];
-            SqlConnection conn = new SqlConnection(conf.ConnectionString);
+            Dictionary<string, object> parametres = new Dictionary<string, object>();
+            parametres.Add("@id", idUserCategory);
 
-            SqlCommand command = conn.CreateCommand();
-            command.CommandText = "select * from UserCategories where idUserCategory = @id";
-            command.Parameters.Add(new SqlParameter("@id", idUserCategory));
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = command;
-            DataSet ds = new DataSet();
-            try
-            {
-                conn.Open();
-                adapter.Fill(ds);
-            }
-            finally
-            {
-                conn.Close();
-            }
+            bd.Connectar();
+            DataSet ds = bd.PortarPerConsulta("select * from UserCategories where idUserCategory = @id", parametres);
 
             if (ds.Tables[0].Rows.Count == 0)
             {
