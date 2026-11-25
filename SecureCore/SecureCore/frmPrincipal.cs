@@ -17,6 +17,13 @@ namespace SecureCore
             InitializeComponent();
         }
 
+        public frmPrincipal(string usuari, string nivell)
+        {
+            InitializeComponent();
+            label1.Text = usuari + " - Nivell " + nivell;
+            this.Text = "Secure Core - " + usuari;
+        }
+
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
 

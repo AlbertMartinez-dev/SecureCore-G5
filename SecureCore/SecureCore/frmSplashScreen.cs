@@ -50,11 +50,7 @@ namespace SecureCore
             {
                 timer1.Stop();
 
-                frmLogin frm = new frmLogin();
-
-                frm.Show();
-
-                this.Hide();
+                this.Close();
             }
 
         }

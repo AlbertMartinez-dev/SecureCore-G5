@@ -79,6 +79,31 @@ namespace DataAccess
             return dts;
         }
 
+        public DataSet PortarPerConsulta(string query, Dictionary<string, object> parametres)
+        {
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = query;
+            foreach (KeyValuePair<string, object> parametre in parametres)
+            {
+                command.Parameters.Add(new SqlParameter(parametre.Key, parametre.Value ?? DBNull.Value));
+            }
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            dts = new DataSet();
+            try
+            {
+                conn.Open();
+                adapter.Fill(dts);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dts;
+        }
+
         public DataTable PortarDataTable(string query)
         {
             SqlDataAdapter adapter;
@@ -113,6 +138,29 @@ namespace DataAccess
             conn.Open();
             result = comanda.ExecuteNonQuery();
             conn.Close();
+
+            return result;
+        }
+
+        public int Executa(string query, Dictionary<string, object> parametres)
+        {
+            SqlCommand command = conn.CreateCommand();
+            command.CommandText = query;
+            foreach (KeyValuePair<string, object> parametre in parametres)
+            {
+                command.Parameters.Add(new SqlParameter(parametre.Key, parametre.Value ?? DBNull.Value));
+            }
+
+            int result;
+            try
+            {
+                conn.Open();
+                result = command.ExecuteNonQuery();
+            }
+            finally
+            {
+                conn.Close();
+            }
 
             return result;
         }
