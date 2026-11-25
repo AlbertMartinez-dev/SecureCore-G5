@@ -6,7 +6,7 @@ namespace SecureCore
 {
     public static class HashUser
     {
-        // SHA256: text -> bytes (UTF8) -> hash -> text "7A-EF-..."
+        
         public static string Hash(string text)
         {
             using (SHA256 sha = SHA256.Create())
@@ -16,7 +16,7 @@ namespace SecureCore
             }
         }
 
-        // Salt aleatori i segur, en Base64 per guardar-lo a la BD
+        
         public static string GenerarSalt()
         {
             using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
@@ -27,7 +27,6 @@ namespace SecureCore
             }
         }
 
-        // La fórmula del projecte: hash del password + salt
         public static string PasswordSaltat(string password, string salt)
         {
             return Hash(password + salt);

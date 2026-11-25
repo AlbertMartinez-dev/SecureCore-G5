@@ -77,14 +77,6 @@ namespace SecureCore
 
             fadeTimer.Start();
 
-            //componentsInvisible();
-
-
-            //pnlLogin.BackgroundImage = Image.FromFile(
-            //    @"C:\Users\Polto\Downloads\espada_encendido_541x470.gif"
-            //);
-
-
             timer = new Timer();
             timer.Interval = 2800;
 
@@ -92,11 +84,6 @@ namespace SecureCore
             {
                 timer.Stop();
 
-                //pnlLogin.BackgroundImage = Image.FromFile(
-                //    @"C:\Users\Polto\Downloads\desierto_loop_541x470.gif"
-                //);
-
-                // Mostrar controles
                 componentsVisible();
 
 
@@ -107,6 +94,15 @@ namespace SecureCore
         }
 
        
+
+        public void ObrirFrmPrincipal()
+        {
+            frmPrincipal frm = new frmPrincipal();
+
+            frm.Show();
+
+            this.Hide();
+        }
 
         private void btnLogin_MouseHover(object sender, EventArgs e)
         {
@@ -143,18 +139,47 @@ namespace SecureCore
             {
                 lblErrorMessage.Visible = false;
 
+                pnlFirstLogin.Visible = false;
 
-                frmPrincipal frm = new frmPrincipal();
+                pnlContrassenya.Visible = true;
 
-                frm.Show();
-
-                this.Hide();
             }
             else
             {
                 lblErrorMessage.Visible = true;
 
             }
+
+        }
+
+        private void btnAccedir2_Click(object sender, EventArgs e)
+        {
+
+            if(txtPass2.Text.Length >= 5)
+            {
+                if (txtPass2.Text == txtRepPass.Text)
+                {
+                    lblerror2.Visible = false;
+
+                    ObrirFrmPrincipal();
+
+
+                }
+                else
+                {
+                    lblerror2.Text = "No coincideix";
+
+                    lblerror2.Visible = true;
+                }
+            }
+            else
+            {
+                lblerror2.Text = "Minim 5 caracters";
+                lblerror2.Visible = true;
+
+            }
+
+
 
         }
     } 
