@@ -16,7 +16,8 @@ namespace SecureCore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSplashScreen());
+            new frmSplashScreen().ShowDialog();
+            Application.Run(new frmLogin());
         }
     }
 }

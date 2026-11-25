@@ -17,6 +17,12 @@ namespace SecureCore
             InitializeComponent();
         }
 
+        public frmPrincipal(string usuari, string nivell)
+        {
+            InitializeComponent();
+            this.Text = "Secure Core - Usuari: " + usuari + " - Nivell d'accés: " + nivell;
+        }
+
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
 
