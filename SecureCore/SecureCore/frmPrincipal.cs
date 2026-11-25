@@ -12,10 +12,7 @@ namespace SecureCore
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal()
-        {
-            InitializeComponent();
-        }
+
 
         public frmPrincipal(string usuari, string nivell)
         {

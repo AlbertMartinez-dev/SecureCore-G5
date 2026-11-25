@@ -35,6 +35,10 @@ namespace SecureCore
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSecureCore = new System.Windows.Forms.Label();
@@ -47,12 +51,10 @@ namespace SecureCore
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnUsers = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.swTextBox1 = new SWControls.SWTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -96,6 +98,7 @@ namespace SecureCore
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.SystemColors.Window;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.swTextBox1);
             this.panel6.Location = new System.Drawing.Point(179, 22);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
@@ -117,6 +120,54 @@ namespace SecureCore
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(147, 443);
             this.panel5.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(-6, 296);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(153, 41);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Ships";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(-6, 229);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(153, 41);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Planets";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(-6, 163);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 41);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Categories";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnUsers.ForeColor = System.Drawing.Color.Black;
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Location = new System.Drawing.Point(-6, 96);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(153, 41);
+            this.btnUsers.TabIndex = 1;
+            this.btnUsers.Text = "Users";
+            this.btnUsers.UseVisualStyleBackColor = false;
             // 
             // btnHome
             // 
@@ -257,53 +308,15 @@ namespace SecureCore
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnUsers
+            // swTextBox1
             // 
-            this.btnUsers.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnUsers.ForeColor = System.Drawing.Color.Black;
-            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.Location = new System.Drawing.Point(-6, 96);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(153, 41);
-            this.btnUsers.TabIndex = 1;
-            this.btnUsers.Text = "Users";
-            this.btnUsers.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-6, 163);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 41);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Categories";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(-6, 229);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 41);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Planets";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(-6, 296);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 41);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Ships";
-            this.button3.UseVisualStyleBackColor = false;
+            this.swTextBox1.CampDB = "";
+            this.swTextBox1.DadaPermesa = SWControls.SWTextBox.TipusDada.Numero;
+            this.swTextBox1.Location = new System.Drawing.Point(85, 97);
+            this.swTextBox1.Name = "swTextBox1";
+            this.swTextBox1.Requerit = true;
+            this.swTextBox1.Size = new System.Drawing.Size(447, 150);
+            this.swTextBox1.TabIndex = 0;
             // 
             // frmPrincipal
             // 
@@ -320,6 +333,7 @@ namespace SecureCore
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -355,6 +369,7 @@ namespace SecureCore
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private SWControls.SWTextBox swTextBox1;
     }
 }
 
