@@ -32,5 +32,24 @@ namespace SecureCore
         {
             this.Close();
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void logoutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(
+        pictureBox1,
+        0,
+        pictureBox1.Height
+    );
+        }
     }
 }

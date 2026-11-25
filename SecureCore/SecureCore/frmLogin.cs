@@ -193,8 +193,8 @@ namespace SecureCore
             pictureBox1.Visible = false;
             pictureBox2.Visible = false;
             lblErrorMessage.ForeColor = color;
-            lblErrorMessage.MaximumSize = new Size(380, 0);
-            lblErrorMessage.Location = new Point(35, 190);
+            lblErrorMessage.MaximumSize = new Size(300, 0);
+            lblErrorMessage.Location = new Point(16, 40);
             lblErrorMessage.Text = text;
             lblErrorMessage.Visible = true;
         }
