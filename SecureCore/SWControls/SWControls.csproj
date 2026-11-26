@@ -49,6 +49,12 @@
     <Compile Include="SWLaunchForm.Designer.cs">
       <DependentUpon>SWLaunchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SWLoginButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SWLoginButton.Designer.cs">
+      <DependentUpon>SWLoginButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="SWTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -60,6 +66,9 @@
   <ItemGroup>
     <EmbeddedResource Include="SWLaunchForm.resx">
       <DependentUpon>SWLaunchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SWLoginButton.resx">
+      <DependentUpon>SWLoginButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SWTextBox.resx">
       <DependentUpon>SWTextBox.cs</DependentUpon>
