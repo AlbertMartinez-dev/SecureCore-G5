@@ -65,22 +65,19 @@ namespace BaseForms
         {
             foreach (Control item in this.Controls)
             {
-                if (item is SWTextBox)
+                if (item is SWTextbox)
                 {
-                    SWTextBox ctr = (SWTextBox)item;
-
+                    SWTextbox ctr = (SWTextbox)item;
                     ctr.DataBindings.Clear();
                     ctr.DataBindings.Add("Text", dts.Tables[nomTaula], ctr.CampDB, true, DataSourceUpdateMode.OnValidation);
-
-                    ctr.Validated -= ValidarTextBox;
-                    ctr.Validated += ValidarTextBox;
+                    ctr.Validated += new System.EventHandler(this.ValidarTextBox);
                 }
             }
         }
 
         protected void ValidarTextBox(object sender, EventArgs e)
         {
-            TextBox ctr = (TextBox)sender;
+            SWTextbox ctr = (SWTextbox)sender;
             if (ctr.DataBindings.Count > 0)
             {
                 ctr.DataBindings[0].BindingManagerBase.EndCurrentEdit();
@@ -95,10 +92,10 @@ namespace BaseForms
 
                 foreach (Control item in this.Controls)
                 {
-                    if (item is TextBox)
+                    if (item is SWTextbox)
                     {
-                        TextBox ctr = (TextBox)item;
-                        dr[ctr.Tag.ToString()] = ctr.Text;
+                        SWTextbox ctr = (SWTextbox)item;
+                        dr[ctr.CampDB] = ctr.Text;
                     }
                 }
 
@@ -124,9 +121,9 @@ namespace BaseForms
 
             foreach (Control item in this.Controls)
             {
-                if (item is TextBox)
+                if (item is SWTextbox)
                 {
-                    TextBox ctr = (TextBox)item;
+                    SWTextbox ctr = (SWTextbox)item;
                     ctr.DataBindings.Clear();
                     ctr.Text = "";
                     ctr.Validated -= new System.EventHandler(this.ValidarTextBox);

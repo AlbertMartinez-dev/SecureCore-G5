@@ -51,10 +51,8 @@ namespace SecureCore
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.swTextBox1 = new SWControls.SWTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -98,7 +96,6 @@ namespace SecureCore
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.SystemColors.Window;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.swTextBox1);
             this.panel6.Location = new System.Drawing.Point(179, 22);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
@@ -308,16 +305,6 @@ namespace SecureCore
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // swTextBox1
-            // 
-            this.swTextBox1.CampDB = "";
-            this.swTextBox1.DadaPermesa = SWControls.SWTextBox.TipusDada.Numero;
-            this.swTextBox1.Location = new System.Drawing.Point(85, 97);
-            this.swTextBox1.Name = "swTextBox1";
-            this.swTextBox1.Requerit = true;
-            this.swTextBox1.Size = new System.Drawing.Size(447, 150);
-            this.swTextBox1.TabIndex = 0;
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -333,7 +320,6 @@ namespace SecureCore
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -369,7 +355,6 @@ namespace SecureCore
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private SWControls.SWTextBox swTextBox1;
     }
 }
 

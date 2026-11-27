@@ -1,53 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace SWControls
 {
-    public partial class SWTextBox : UserControl
+    public class SWTextbox : TextBox
     {
-        public SWTextBox()
-        {
-            InitializeComponent();
-        }
-
-        private void swtCodi_Enter(object sender, EventArgs e)
-        {
-            SWTCodi.BackColor = Color.GreenYellow;
-
-        }
-
-        private void swtCodi_Leave(object sender, EventArgs e)
-        {
-            SWTCodi.BackColor = Color.White;
-            if (ValidarCodigo(SWTCodi.Text))
-            {
-
-                SWTCodi.BackColor = Color.White;
-            }
-            else
-            {
-
-                SWTCodi.BackColor = Color.MistyRose;
-
-                MessageBox.Show("El format del codi es erroni\n" +
-                                "segueix el patro de" + this.DadaPermesa.ToString(),
-                                "Error de validación",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-
-                SWTCodi.Focus();
-            }
-
-        }
-
         public enum TipusDada
         {
             Numero,
@@ -55,39 +15,12 @@ namespace SWControls
             Codi
         }
 
-        private TipusDada _DadaPermesa;
+        private TipusDada _DadaPermesa = TipusDada.Text;
 
         public TipusDada DadaPermesa
         {
             get { return _DadaPermesa; }
-
-            set
-
-            {
-
-                _DadaPermesa = value;
-
-            }
-        }
-
-        public static string CodiStarWars()
-        {
-            string codi = @"^[AEIOU][A-Z]{3}-\d{2}[13579]$";
-            return codi;
-        }
-
-
-        public static bool ValidarCodigo(string input)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                return false;
-            }
-            else
-            {
-                return Regex.IsMatch(input, CodiStarWars());
-            }
-
+            set { _DadaPermesa = value; }
         }
 
         private bool _Requerit = false;
@@ -106,6 +39,82 @@ namespace SWControls
             set { _CampDB = value; }
         }
 
+        private bool _ClauForana = false;
 
+        public bool ClauForana
+        {
+            get { return _ClauForana; }
+            set { _ClauForana = value; }
+        }
+
+        private Color _ColorOriginal;
+
+        public static string CodiStarWars()
+        {
+            return @"^[AEIOU][A-Z]{3}-\d{2}[13579]$";
+        }
+
+        public static string Numero()
+        {
+            return @"^\d+$";
+        }
+
+        public static bool ValidarCodigo(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return false;
+
+            return Regex.IsMatch(input, CodiStarWars());
+        }
+
+        public bool ValidarDada(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return !Requerit;
+
+            switch (DadaPermesa)
+            {
+                case TipusDada.Numero:
+                    return Regex.IsMatch(input, Numero());
+
+                case TipusDada.Text:
+                    return true;
+
+                case TipusDada.Codi:
+                    return ValidarCodigo(input);
+
+                default:
+                    return false;
+            }
+        }
+
+        protected override void OnEnter(EventArgs e)
+        {
+            base.OnEnter(e);
+
+            _ColorOriginal = BackColor;
+            BackColor = Color.GreenYellow;
+        }
+
+        protected override void OnValidating(CancelEventArgs e)
+        {
+            base.OnValidating(e);
+
+            if (!ValidarDada(Text))
+            {
+                BackColor = Color.MistyRose;
+                e.Cancel = true;
+
+                MessageBox.Show("El format de la dada és incorrecte.\n" + "Segueix el patró de " + 
+                    DadaPermesa.ToString(), "Error de validació", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        protected override void OnValidated(EventArgs e)
+        {
+            base.OnValidated(e);
+
+            BackColor = _ColorOriginal;
+        }
     }
 }
